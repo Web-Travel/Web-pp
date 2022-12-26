@@ -1,0 +1,176 @@
+.main{
+   /* background:   url(../Assets/bg2.png); */
+   height: 700px;
+   width: 100%;
+   margin-top: 100px;
+}
+
+/* .collapse {
+   padding-left: 50px;
+} */
+
+.logo{
+   width: 65px;
+   height: 50px;
+}
+
+.navbar{
+   position: fixed;
+}
+
+.container{
+   width: 800px;
+   height: auto;
+   padding-top: 250px;
+   margin: auto;
+}
+
+.card{
+   width: 220px;
+   height: 300px;
+}
+
+.text{
+   height: 200px;
+}
+
+.text .h1{
+   padding-top: 100px;
+   font-size: 70px;
+}
+
+.text .h2{
+   padding-top: 10px;
+   font-size: 20px;
+   margin: auto;
+}
+
+main .img{
+   margin-top: 100px;
+}
+
+.beast-trip{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 20px;
+}
+
+.beast-trips{
+   margin: auto;
+   
+}
+
+.beast-trips .best{
+   font-family: 'Times New Roman', Times, serif;
+   text-align: center;
+   font-size: 150px;
+   color: aquamarine;
+   line-height: 0.9;
+   text-shadow: 6px 3px #eee;
+}
+
+.picture{
+   margin: 10px;
+}
+
+.photo3{
+   margin: auto;
+   
+}
+
+body .picture4{
+   display: block;
+}
+
+.nav-link:hover {
+   background-color: #DCDCDC;
+  
+}
+
+/* .text .image{
+   background:  url(../Assets/pp.jpg);
+   width: 100%;
+   height: 1000px;
+   
+} */
+
+/* Respornsive for container */
+
+@media only screen and (max-width: 1100px) {
+   .login button{
+      display: none;
+   }
+
+  
+ }
+
+@media only screen and (max-width: 700px) {
+   .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+   }
+
+   .card1{
+      display: none;
+   }
+
+   /* .card{
+      width: 220px;
+      height: 400px;
+      display: none;
+   } */
+
+   .text{
+      display: none;
+   }
+
+   .login button{
+      display: none;
+   }
+
+   .demo{
+      display: none;
+   }
+
+   .picture3{
+      display: none;
+   }
+
+   .picture2{
+      display: none;
+   }
+
+   .navbar{
+      padding: 0;
+   }
+
+   
+   
+  
+ }
+
+ @media (max-width: 576px) {  
+   .xs {color:red;font-weight:bold;}
+ }
+ 
+ /* Small devices (landscape phones, 576px and up) */
+ @media (min-width: 576px) and (max-width:768px) {  
+   .sm {color:red;font-weight:bold;}
+ }
+  
+ /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+ @media (min-width: 768px) and (max-width:992px) {  
+  .md {color:red;font-weight:bold;}
+ }
+  
+ /* Large devices (desktops, 992px and up) */
+ @media (min-width: 992px) and (max-width:1200px) { 
+  .lg {color:red;font-weight:bold;}
+ }
+  
+ /* Extra large devices (large desktops, 1200px and up) */
+ @media (min-width: 1200px) {  
+     .xl {color:red;font-weight:bold;}
+ }
+
+ 
