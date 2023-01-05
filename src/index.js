@@ -8,7 +8,8 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 import '@fortawesome/free-solid-svg-icons';
 import '@fortawesome/free-regular-svg-icons';
 import '@fortawesome/free-solid-svg-icons';
-
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,10 +1,10 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
 
-import Home from './Components/Home';
-import About from './Components/About';
-import Photos from './Components/Photos';
-import ErrorPage from './Components/ErrorPage';
+import Home from './Views/Home';
+import About from './Views/About';
+import Photos from './Views/Photos';
+import ErrorPage from './Views/ErrorPage';
 
 function App() {
   return (
