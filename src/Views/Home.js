@@ -1,34 +1,16 @@
-import React, { useState } from 'react';
+
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css";
-
-import {
-  MDBContainer, MDBNavbar, MDBNavbarBrand,MDBNavbarToggler, MDBIcon,MDBNavbarNav, MDBNavbarItem, 
-  MDBNavbarLink, MDBBtn,  MDBCard, MDBCardImage, MDBCardBody, MDBCollapse, MDBRow,
-  MDBCol, MDBInput,MDBCheckbox, MDBModal, MDBModalDialog, MDBModalContent, 
-  MDBModalFooter, MDBModalBody, MDBTabs, MDBTabsItem, MDBTabsLink, MDBTabsContent,
-  MDBTabsPane
-} from 'mdb-react-ui-kit';
 import { faAutomobile } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import NavbarHomepage from '../Components/NavbarHomepage';
+import Join from '../Components/Join';
+import {
+  MDBContainer, MDBIcon, MDBBtn,  MDBCard, MDBCardImage, MDBCardBody, MDBRow,
+  MDBCol, MDBInput,MDBCheckbox, MDBRipple, MDBCardTitle, MDBCardText
+} from 'mdb-react-ui-kit';
+import FooterDesign from '../Components/FooterDesign';
 
 export default function App() {
-  const [showBasic, setShowBasic] = useState(false);
-
-  /** login sign up pop up */
-  const [basicModal, setBasicModal] = useState(false);
-  const toggleShow = () => setBasicModal(!basicModal);
-
-  // login and sinup
-  const [justifyActive, setJustifyActive] = useState('tab1');;
-
-  const handleJustifyClick = (value) => {
-    if (value === justifyActive) {
-      return;
-    }
-    setJustifyActive(value);
-  };
-  /** End login sign up pop up */
 
   /** carousel frame item place */
   const responsive = {
@@ -52,402 +34,239 @@ export default function App() {
   };
   /** End carousel frame item place */
 
-
-  
   return (
     <>
-    {/* start navbar */}
-    <div>
-      <MDBNavbar expand='lg' light bgColor='light'>
-        <MDBContainer fluid>
-          <MDBNavbarBrand href='#'>
-            CamTravel
-          </MDBNavbarBrand>
 
-          <MDBNavbarToggler
-            aria-controls='navbarSupportedContent'
-            aria-expanded='false'
-            aria-label='Toggle navigation'
-            onClick={() => setShowBasic(!showBasic)}
-          >
-            <MDBIcon icon='bars' fas />
-          </MDBNavbarToggler>
+    <div fluid>
+      {/* call Navbar from components */}
+      <NavbarHomepage transparent/>
 
-          <MDBCollapse navbar show={showBasic}>
-            <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-              <MDBNavbarItem>
-                <MDBNavbarLink active aria-current='page' href='#'>
-                  HOME
-                </MDBNavbarLink>
-              </MDBNavbarItem>
-
-              {/* menu */}
-              <MDBNavbarItem>
-                <Link to='/photos'> 
-                  <MDBNavbarLink href='#'>PHOTOS</MDBNavbarLink>
-                </Link>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href='#'>PLACES</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href='#'>TOP-PICTURE</MDBNavbarLink>
-              </MDBNavbarItem>
-              <MDBNavbarItem>
-                <MDBNavbarLink href='#'>CONTACT US</MDBNavbarLink>
-              </MDBNavbarItem>
-              {/* end menu */}
-              
-              <MDBNavbarItem>
-                <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                  {/* Disabled */}
-                </MDBNavbarLink>
-              </MDBNavbarItem>
-              
-            </MDBNavbarNav>
-                
-          </MDBCollapse>
-        </MDBContainer>
-      </MDBNavbar>
-    </div>
-    {/* end navbar */}
-
-
-    {/* start header */}  
-      <div
-          className=' text-center bg-image'
-          style={{ backgroundImage: "url('https://images.pexels.com/photos/2132096/pexels-photo-2132096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '590px' }}
+      {/* start header */}  
+      <div>
+        <div
+          className='text-center bg-image'
+          style={{ backgroundImage: "url('https://images.pexels.com/photos/2132096/pexels-photo-2132096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '500px' }}
         >
           <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
             <div className='d-flex justify-content-center align-items-center h-100'>
               <div className='text-white'>
                 <h1 className='mb-3'>Welcome to CamTravel</h1>
                 <h4 className='mb-3'>You can find place with location and description and beautiful photos</h4>
-
                 {/* login sign up pop up */}
-                <div>
-                  <MDBBtn color='light' rippleColor='red' size="lg" onClick={toggleShow}>Join</MDBBtn>
-                  <MDBModal show={basicModal} setShow={setBasicModal} tabIndex="-1">
-                    <MDBModalDialog>
-                      <MDBModalContent>
-                        {/*  */}
-                        <MDBModalBody>
-                          <MDBContainer className="p-2  d-flex flex-column w-70">
-
-                            <MDBTabs pills justify className='mb-3 d-flex flex-row justify-content-between'>
-                              <MDBTabsItem>
-                                <MDBTabsLink onClick={() => handleJustifyClick('tab1')} active={justifyActive === 'tab1'}>
-                                  Login
-                                </MDBTabsLink>
-                              </MDBTabsItem>
-                              <MDBTabsItem>
-                                <MDBTabsLink onClick={() => handleJustifyClick('tab2')} active={justifyActive === 'tab2'}>
-                                  Register
-                                </MDBTabsLink>
-                              </MDBTabsItem>
-                            </MDBTabs>
-
-                            <MDBTabsContent>
-
-                              <MDBTabsPane show={justifyActive === 'tab1'}>
-
-                                
-                                <div className="mb-3" active aria-current='page'>
-                                  <p>Sign in with</p>
-                                  <div className='d-flex justify-content-between mx-auto' style={{width: '50%'}}>
-                                    <MDBBtn floating size='md' style={{ backgroundColor: '#3b5998' }}  tag='a'>
-                                      <MDBIcon fab icon='facebook-f' />
-                                    </MDBBtn>
-                                    <MDBBtn floating size='md' style={{ backgroundColor: '#dd4b39' }}  tag='a'>
-                                      <MDBIcon fab icon='google' />
-                                    </MDBBtn>
-                                    <MDBBtn floating size='md' style={{ backgroundColor: '#55acee' }}  tag='a'>
-                                      <MDBIcon fab icon='twitter' />
-                                    </MDBBtn>
-                                  </div>
-                                  <p className="text-center mt-3">or</p>
-                                </div>
-
-                                <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
-                                <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
-
-                                <div className="d-flex justify-content-between mx-4 mb-4">
-                                  <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
-                                  <a href="!#">Forgot password?</a>
-                                </div>
-
-                                <MDBBtn className="mb-4 w-100">Sign in</MDBBtn>
-                                <p className="text-center">Not a member? <a href="#!">Register</a></p>
-
-                              </MDBTabsPane>
-
-                              <MDBTabsPane show={justifyActive === 'tab2'}>
-
-                                <div className="text-center mb-3">
-                                  <p>Sign up with</p>
-
-                                  <div className='d-flex justify-content-between mx-auto' style={{width: '50%'}}>
-                                    <MDBBtn floating size='md' style={{ backgroundColor: '#3b5998' }}  tag='a'>
-                                      <MDBIcon fab icon='facebook-f' />
-                                    </MDBBtn>
-                                    <MDBBtn floating size='md' style={{ backgroundColor: '#dd4b39' }}  tag='a'>
-                                      <MDBIcon fab icon='google' />
-                                    </MDBBtn>
-                                    <MDBBtn floating size='md' style={{ backgroundColor: '#55acee' }}  tag='a'>
-                                      <MDBIcon fab icon='twitter' />
-                                    </MDBBtn>
-                                  </div>
-
-                                  <p className="text-center mt-3">or</p>
-                                </div>
-
-                                <MDBInput wrapperClass='mb-4' label='Name' id='form1' type='text'/>
-                                <MDBInput wrapperClass='mb-4' label='Username' id='form1' type='text'/>
-                                <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-                                <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
-
-                                <div className='d-flex justify-content-center mb-4'>
-                                  <MDBCheckbox name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
-                                </div>
-
-                                <MDBBtn className="mb-4 w-100">Sign up</MDBBtn>
-
-                              </MDBTabsPane>
-
-                            </MDBTabsContent>
-
-                            </MDBContainer>
-                        </MDBModalBody>
-                        {/*  */}
-
-                        <MDBModalFooter>
-                          <MDBBtn color="secondary" onClick={toggleShow}>
-                            Close
-                          </MDBBtn>
-                        </MDBModalFooter>
-                      </MDBModalContent>
-                    </MDBModalDialog>
-                  </MDBModal>
-                </div>
+                <Join/>
                 {/* end login sign up pop up */}
-
               </div>
             </div>
           </div>
-
         </div>
-      {/* end header */}
-
+        {/* end header */}
+      </div>
       {/*==================== Start main ================ */}
-      <div class="main">
+      
+      <div>
         {/* start place */}
-        <div class="place" >
-          <MDBContainer className='data-mdb-interval '>
-            <Carousel
-            responsive={responsive } >
+        <MDBContainer>
+          <Carousel
+          responsive={responsive } >
 
-              <div className='p-6 text-center mt-3 me-3'>
-                <div className=' text-center bg-image'
-                    style={{ backgroundImage: "url('https://images.pexels.com/photos/3217663/pexels-photo-3217663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
-                >
-                     <div className='d-flex justify-content-center align-items-center h-100'>
-                      <div className='text-white'>
-                      <h4 className='mb-3'>Siem Reap</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='p-6 text-center mt-3 me-3'>
-                <div className=' text-center bg-image'
-                    style={{ backgroundImage: "url('https://images.pexels.com/photos/13104650/pexels-photo-13104650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
-                >
-                     <div className='d-flex justify-content-center align-items-center h-100'>
-                      <div className='text-white'>
-                      <h4 className='mb-3'>Koh Kong</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='p-6 text-center mt-3 me-3'>
-                <div className=' text-center bg-image'
-                    style={{ backgroundImage: "url('https://images.pexels.com/photos/15004642/pexels-photo-15004642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
-                >
-                     <div className='d-flex justify-content-center align-items-center h-100'>
-                      <div className='text-white'>
-                      <h4 className='mb-3'>Kompot</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className='p-6 text-center mt-3 me-3'>
-                <div className=' text-center bg-image'
-                    style={{ backgroundImage: "url('https://images.pexels.com/photos/15004642/pexels-photo-15004642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
-                >
-                     <div className='d-flex justify-content-center align-items-center h-100'>
-                      <div className='text-white'>
-                      <h4 className='mb-3'>Kompot</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='p-6 text-center mt-3 me-3'>
-                <div className=' text-center bg-image'
-                    style={{ backgroundImage: "url('https://images.pexels.com/photos/15004642/pexels-photo-15004642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
-                >
-                     <div className='d-flex justify-content-center align-items-center h-100'>
-                      <div className='text-white'>
-                      <h4 className='mb-3'>Kompot</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='p-6 text-center mt-3 me-3'>
-                <div className=' text-center bg-image'
-                    style={{ backgroundImage: "url('https://images.pexels.com/photos/15004642/pexels-photo-15004642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
-                >
-                     <div className='d-flex justify-content-center align-items-center h-100'>
-                      <div className='text-white'>
-                      <h4 className='mb-3'>Kompot</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className='p-6 text-center mt-3 me-3'>
-                <div className=' text-center bg-image'
-                    style={{ backgroundImage: "url('https://images.pexels.com/photos/15004642/pexels-photo-15004642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
-                >
-                     <div className='d-flex justify-content-center align-items-center h-100'>
-                      <div className='text-white'>
-                      <h4 className='mb-3'>Kompot</h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Carousel>
-            
-          </MDBContainer>
-        </div>
-        {/* end place =======*/}
-
-
-
-
-          {/* start best trip */}
-          {/* text */}
-          <div class="best-trip">
-            <MDBContainer breakpoint='xxl' className='mt-5'>
-              <p className='mb-3' style={{color: 'hsl(217, 10%, 50.8%)'}}>
-                PLAN YOUR TRIP
-              </p>
-              <h1 className='mb-3'>Where to next?</h1>
-            </MDBContainer>
-            {/* end text */}
-
-            <div>
+            <div className='p-6 mt-3 me-3 mb-4'>
               <MDBCard>
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+                <div className=' text-center bg-image'
+                  style={{ backgroundImage: "url('https://images.pexels.com/photos/3217663/pexels-photo-3217663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
+                > </div>
+                
+                </MDBRipple>
                 <MDBCardBody>
-                  <MDBContainer>
-                    <MDBRow>
-                      <MDBCol className='hover-zoom' start>
-                        <MDBCardImage className='className="square bg-primary rounded-7"'  src='https://images.pexels.com/photos/12168511/pexels-photo-12168511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  style={{height:faAutomobile}} position='top' alt='...' />
-                          <MDBCol className='hover-zoom mt-3' start>
-                            <MDBCardImage src='https://images.pexels.com/photos/4794752/pexels-photo-4794752.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  style={{height:faAutomobile}} position='top' alt='...' />
-                          </MDBCol>
-                      </MDBCol>
-                      <MDBCol className='hover-zoom' center>
-                        <MDBCardImage className=' mt-3' src=' https://images.pexels.com/photos/11295223/pexels-photo-11295223.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  style={{height:faAutomobile}}  position='top' alt='...' />
-                      </MDBCol>
-                     
-                      <MDBCol className=' hover-zoom' end>
-                        <MDBCardImage src='https://images.pexels.com/photos/9704431/pexels-photo-9704431.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' style={{height:faAutomobile}}  position='top' alt='...' />
-                      </MDBCol>
-                    </MDBRow>
-                  </MDBContainer>
+                  <MDBCardTitle><h2><span style={{ fontWeight: 'bold' }}>Siem Reap</span></h2></MDBCardTitle>
+                  <MDBCardText><p>Post by <span style={{ fontWeight: 'bold' }}>Phors</span></p></MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+            
+            <div className='p-6 mt-3 me-3'>
+              <MDBCard >
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+                <div className=' text-center bg-image'
+                  style={{ backgroundImage: "url('https://images.pexels.com/photos/13104650/pexels-photo-13104650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
+                >
+               
+                </div>
+                </MDBRipple>
+                <MDBCardBody>
+                  <MDBCardTitle><h3><span style={{ fontWeight: 'bold' }}>Koh Kong</span></h3></MDBCardTitle>
+                  <MDBCardText><p>Post by <span style={{ fontWeight: 'bold' }}>Phors</span></p></MDBCardText>
                 </MDBCardBody>
               </MDBCard>
             </div>
 
-          </div>
-          {/* end best trip */}
-         
+            <div className='p-6 mt-3 me-3'>
+              <MDBCard >
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+                <div className=' text-center bg-image'
+                  style={{ backgroundImage: "url('https://images.pexels.com/photos/12098898/pexels-photo-12098898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
+                >
+                
+                </div>
+                </MDBRipple>
+                <MDBCardBody>
+                  <MDBCardTitle><h3><span style={{ fontWeight: 'bold' }}>Phnom Penh</span></h3></MDBCardTitle>
+                  <MDBCardText><p>Post by <span style={{ fontWeight: 'bold' }}>Phors</span></p></MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+    
+            <div className='p-6 mt-3 me-3'>
+              <MDBCard >
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
+                <div className=' text-center bg-image'
+                  style={{ backgroundImage: "url('https://images.pexels.com/photos/15004642/pexels-photo-15004642.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '200px' }}
+                >
+               
+                </div>
+                </MDBRipple>
+                <MDBCardBody>
+                  <MDBCardTitle><h3><span style={{ fontWeight: 'bold' }}>Kompot</span></h3></MDBCardTitle>
+                  <MDBCardText><p>Post by <span style={{ fontWeight: 'bold' }}>Phors</span></p></MDBCardText>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+          </Carousel>
+        </MDBContainer> 
+        {/* end place =======*/}
 
+        {/* start you next trip... */}
+        <MDBContainer>
+          <MDBContainer breakpoint='xl' className='mt-3  text-center'>
+            <MDBCardTitle>
+              <h1><span style={{ fontWeight: 'bold' }}>Your next adventure starts here</span></h1>
+            </MDBCardTitle>
+            <MDBCardText className='mb-3'>
+              <p style={{color: 'hsl(217, 10%, 50.8%)'}}>
+                Take a relaxing forest walk, shop Irish Christmas gifts from around the country, cosy up in a local pub and plan your next short break. There's so much to discover in Ireland this winter.
+              </p>
+            </MDBCardText>
+          </MDBContainer>
+          <div className='bg-image'
+            style={{ backgroundImage: "url('https://images.pexels.com/photos/5984848/pexels-photo-5984848.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '500px' }}
+          ></div>
+        </MDBContainer>
+        {/* end start your next trip... */}
 
-          <div class="login">
-            <MDBContainer fluid className='p-4'>
-              <MDBRow>
-
-                <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
-                    {/*  */}
-                </MDBCol>
-
-                <MDBCol md='5'>
-
-                  <MDBCard className='my-5'>
-                    <h5 className="my-3  text-center display-3 fw-bold ls-tight px-3">
-                      Join with <br />
-                      <span className="text-primary">CamTravel</span>
-                    </h5>
-                    <p className='px-3 text-center ' style={{color: 'hsl(217, 10%, 50.8%)'}}>
-                      Join with CamTravel you can find place for your plan travel,and you can <br></br>  download photo powered by a community of photographers.
-                    </p>
- 
-                    <MDBCardBody className='p-5'>
-
-                      <MDBRow>
-                        <MDBCol col='6'>
-                          <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
-                        </MDBCol>
-
-                        <MDBCol col='6'>
-                          <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
-                        </MDBCol>
-                      </MDBRow>
-
-                      <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
-                      <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
-
-                      <div className='d-flex justify-content-center mb-4'>
-                        <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
-                      </div>
-
-                      <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
-
-                      <div className="text-center mb-3">
-                        <p>Sign in with</p>
-                          <div className='d-flex justify-content-between mx-auto' style={{width: '50%'}}>
-                            <MDBBtn floating size='md' style={{ backgroundColor: '#3b5998' }}  tag='a'>
-                              <MDBIcon fab icon='facebook-f' />
-                            </MDBBtn>
-                            <MDBBtn floating size='md' style={{ backgroundColor: '#dd4b39' }}  tag='a'>
-                              <MDBIcon fab icon='google' />
-                            </MDBBtn>
-                            <MDBBtn floating size='md' style={{ backgroundColor: '#55acee' }}  tag='a'>
-                              <MDBIcon fab icon='twitter' />
-                            </MDBBtn>
-                          </div>
-                        </div>
-                    
-
-                    </MDBCardBody>
-                  </MDBCard>
-
-                </MDBCol>
-
-              </MDBRow>
-
-              </MDBContainer>
-          </div>
-
+        {/* start The best Trip */}
+        <MDBContainer className='mt-5'>
+          <MDBCardTitle>
+            <h1><span style={{ fontWeight: 'bold' }}>The Best Trip</span></h1>
+          </MDBCardTitle>
           
+          <MDBRow className='mt-3' start>
+            <MDBCol size='4'>
+              <div className='bg-image'
+                style={{ backgroundImage: "url('https://images.pexels.com/photos/13452820/pexels-photo-13452820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '250px' }}
+              ></div>
+            </MDBCol>
+            <MDBCol size='4'>
+              <div className='bg-image'
+                style={{ backgroundImage: "url('https://images.pexels.com/photos/8805449/pexels-photo-8805449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '250px' }}
+              ></div>
+            </MDBCol>
+          </MDBRow>
+          <MDBRow className='mt-3' end>
+            <MDBCol size='4'>
+              <div className='bg-image'
+                style={{ backgroundImage: "url('https://images.pexels.com/photos/12610510/pexels-photo-12610510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '250px' }}
+              ></div>
+            </MDBCol>
+            <MDBCol size='4'>
+              <div className='bg-image'
+                style={{ backgroundImage: "url('https://images.pexels.com/photos/13771968/pexels-photo-13771968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '250px'}}
+              ></div>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+        {/* end the best trip */}
+
+        {/* start Photo */}
+        <MDBContainer className='mt-5'>
+          <MDBCardTitle>
+            <h1><span style={{ fontWeight: 'bold' }}>Photo</span></h1>
+          </MDBCardTitle>
+        </MDBContainer>
+        <div>
+          <MDBCardBody>
+            <MDBContainer>
+              <MDBRow>
+                <MDBCol className='hover-zoom ' start>
+                  <MDBCardImage className='img-fluid rounded' src='https://images.pexels.com/photos/10259251/pexels-photo-10259251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  style={{height:faAutomobile}} position='top' alt='...' />
+                </MDBCol>
+                <MDBCol className='hover-zoom' center>
+                  <MDBCardImage className='img-fluid rounded mt-5' src='https://images.pexels.com/photos/12078900/pexels-photo-12078900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  style={{height:faAutomobile}}  position='top' alt='...' />
+                </MDBCol> 
+                <MDBCol className='hover-zoom' end>
+                  <MDBCardImage className='img-fluid rounded' src='https://images.pexels.com/photos/14589051/pexels-photo-14589051.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' style={{height:faAutomobile}}  position='top' alt='...' />
+                </MDBCol>
+              </MDBRow>
+            </MDBContainer>
+          </MDBCardBody>
+        </div>
+        {/* end best trip */}
+         
+        {/* sign up */}
+        <MDBContainer fluid className='p-4'>
+          <MDBRow>
+            <MDBCol md='6' className='text-center text-md-start d-flex flex-column justify-content-center'>
+                {/*  */}
+            </MDBCol>
+            <MDBCol md='5'>
+              <MDBCard className='my-5'>
+                <h5 className="my-3  text-center display-3 fw-bold ls-tight px-3">
+                  Join with <br />
+                  <span className="text-primary">CamTravel</span>
+                </h5>
+                <p className='px-3 text-center ' style={{color: 'hsl(217, 10%, 50.8%)'}}>
+                  Join with CamTravel you can find place for your plan travel,and you can <br></br>  download photo powered by a community of photographers.
+                </p>
+                <MDBCardBody className='p-5'>
+                  <MDBRow>
+                    <MDBCol col='6'>
+                      <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
+                    </MDBCol>
+                    <MDBCol col='6'>
+                      <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
+                    </MDBCol>
+                  </MDBRow>
+                  <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email'/>
+                  <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password'/>
+                  <div className='d-flex justify-content-center mb-4'>
+                    <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
+                  </div>
+                  <MDBBtn className='w-100 mb-4' size='md'>sign up</MDBBtn>
+                  <div className="text-center mb-3">
+                    <p>Sign in with</p>
+                      <div className='d-flex justify-content-between mx-auto' style={{width: '50%'}}>
+                        <MDBBtn floating size='md' style={{ backgroundColor: '#3b5998' }}  tag='a'>
+                          <MDBIcon fab icon='facebook-f' />
+                        </MDBBtn>
+                        <MDBBtn floating size='md' style={{ backgroundColor: '#dd4b39' }}  tag='a'>
+                          <MDBIcon fab icon='google' />
+                        </MDBBtn>
+                        <MDBBtn floating size='md' style={{ backgroundColor: '#55acee' }}  tag='a'>
+                          <MDBIcon fab icon='twitter' />
+                        </MDBBtn>
+                      </div>
+                    </div>
+                </MDBCardBody>
+              </MDBCard>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+        {/* ENd sign up */}
+            
       </div>
       {/*==================== End main ================ */}
-      
+      {/* call footer from components */}
+      <FooterDesign/>
+    </div>
     </>
   );
 }
