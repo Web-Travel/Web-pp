@@ -1,9 +1,12 @@
+
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-
+{/*--------------------------------------------------------------
+  # Footer Component
+    -------------------------------------------------------------- */}
 export default function FooterDesign() {
   return (
-    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
+    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted mt-5'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
           <span>Get connected with us on social networks:</span>
@@ -37,11 +40,11 @@ export default function FooterDesign() {
             <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>
                 <MDBIcon color='secondary' icon='gem' className='me-3' />
-                Company name
+                CamTravel
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit.
+              Here you can find a place to relax easily with mab. Not only that, 
+              you can also find rich pictures here and you can also post pictures.
               </p>
             </MDBCol>
 
@@ -97,17 +100,17 @@ export default function FooterDesign() {
               <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
               <p>
                 <MDBIcon color='secondary' icon='home' className='me-2' />
-                New York, NY 10012, US
+                RUPP (Royal University of Phnom Penh), មហាវិថី សហពន្ធ័រុស្ស៊ី (១១០), ភ្នំពេញ
               </p>
               <p>
                 <MDBIcon color='secondary' icon='envelope' className='me-3' />
-                info@example.com
+                info@CamTravel.com
               </p>
               <p>
-                <MDBIcon color='secondary' icon='phone' className='me-3' /> + 01 234 567 88
+                <MDBIcon color='secondary' icon='phone' className='me-3' /> + 855 1222 999
               </p>
               <p>
-                <MDBIcon color='secondary' icon='print' className='me-3' /> + 01 234 567 89
+                <MDBIcon color='secondary' icon='print' className='me-3' /> + 855 1288 999
               </p>
             </MDBCol>
           </MDBRow>
