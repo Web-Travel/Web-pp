@@ -1,4 +1,3 @@
-
 import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css";
 import { faAutomobile } from '@fortawesome/free-solid-svg-icons';
@@ -6,14 +5,13 @@ import Join from '../Components/LoginSignup/Join';
 import FooterDesign from '../Components/FooterDesign';
 import Navbar from "../Components/Navbar";
 import { Link } from "react-router-dom";
+import homeBg from "../Assets/Image/home.jpeg"
 import {
   MDBContainer,  MDBCard, MDBCardImage, MDBCardBody, MDBRow,
-  MDBCol, MDBRipple, MDBCardTitle, MDBCardText
+  MDBCol, MDBRipple, MDBCardTitle, MDBCardText, MDBInput, MDBCheckbox, MDBBtn, MDBIcon
 } from 'mdb-react-ui-kit';
+import Scrolltop from "../Components/Scrolltop";
 
-{/*--------------------------------------------------------------
-  # Home Page
-    -------------------------------------------------------------- */}
 export default function App() {
 
   /** carousel frame item place */
@@ -40,15 +38,19 @@ export default function App() {
 
   return (
     <>
+      
 
     <div fluid>
+    
       {/* call Navbar from components */}
       <Navbar/>
-      {/* start header */}  
+      {/*==================================== 
+      * Header 
+      ==================================== */}
       <div>
         <div
           className='text-center bg-image'
-          style={{ backgroundImage: "url('https://images.pexels.com/photos/2132096/pexels-photo-2132096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", height: '700px' }}
+          style={{ backgroundImage: `url(${homeBg})`, height: '700px' }}
         >
           <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
             <div className='d-flex justify-content-center align-items-center h-100'>
@@ -62,12 +64,16 @@ export default function App() {
             </div>
           </div>
         </div>
-        {/* end header */}
       </div>
+      {/* end header */}
 
-      {/*==================== Start main ================ */}
+      {/*==================================== 
+      * Start main 
+      ==================================== */}
       <div>
-        {/* start place */}
+        {/*==================================== 
+        * start place
+        ==================================== */}
         <MDBContainer>
           <Carousel
           responsive={responsive } >
@@ -86,9 +92,8 @@ export default function App() {
                 </MDBRipple>
                 <MDBCardBody>
                   <Link to='/SiemReap'>
-                    <MDBCardTitle href='/SiemReap'><h5><span style={{ fontWeight: 'bold' }}>Siem Reap</span></h5></MDBCardTitle>
+                    <MDBCardTitle href='/SiemReap'><h6><span style={{ fontWeight: 'bold' }}>Siem Reap</span></h6></MDBCardTitle>
                   </Link>
-                  {/* <MDBCardText><p>Post by <span style={{ fontWeight: 'bold' }}>Phors</span></p></MDBCardText> */}
                 </MDBCardBody>
               </MDBCard>
             </div>
@@ -107,7 +112,7 @@ export default function App() {
                 </MDBRipple>
                 <MDBCardBody>
                     <Link to='PhnomPenh'>
-                      <MDBCardTitle><h5><span style={{ fontWeight: 'bold' }}>Phnom Penh</span></h5></MDBCardTitle>
+                      <MDBCardTitle><h6><span style={{ fontWeight: 'bold' }}>Phnom Penh</span></h6></MDBCardTitle>
                     </Link>
                 </MDBCardBody>
               </MDBCard>
@@ -127,7 +132,7 @@ export default function App() {
                 </MDBRipple>
                 <MDBCardBody>
                   <Link to='Sihanouk'>
-                    <MDBCardTitle><h5><span style={{ fontWeight: 'bold' }}>Preah Sihanouk</span></h5></MDBCardTitle>
+                    <MDBCardTitle><h6><span style={{ fontWeight: 'bold' }}>Preah Sihanouk</span></h6></MDBCardTitle>
                   </Link>
                 </MDBCardBody>
               </MDBCard>
@@ -147,7 +152,7 @@ export default function App() {
                 </MDBRipple>
                 <MDBCardBody>
                   <Link to='Kampot'>
-                    <MDBCardTitle><h5><span style={{ fontWeight: 'bold' }}>Kompot</span></h5></MDBCardTitle>
+                    <MDBCardTitle><h6><span style={{ fontWeight: 'bold' }}>Kompot</span></h6></MDBCardTitle>
                   </Link>
                 </MDBCardBody>
               </MDBCard>
@@ -156,7 +161,10 @@ export default function App() {
         </MDBContainer> 
         {/* end place =======*/}
 
-        {/* start you next trip... */}
+
+        {/*==================================== 
+        * start you next trip...
+        ==================================== */}
         <MDBContainer>
           <MDBContainer breakpoint='xl' className='mt-3  text-center'>
             <MDBCardTitle>
@@ -177,52 +185,10 @@ export default function App() {
         </MDBContainer>
         {/* end start your next trip... */}
 
-        {/* start The best Trip */}
-        <MDBContainer className='mt-5'>
-          <MDBCardTitle>
-            <h1><span style={{ fontWeight: 'bold' }}>The Best Trip</span></h1>
-          </MDBCardTitle>
-          
-          <MDBRow className='mt-3' start>
-            <MDBCol size='4'>
-              <div className='bg-image'
-                style={{ 
-                  backgroundImage: 
-                  "url('https://images.pexels.com/photos/13452820/pexels-photo-13452820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", 
-                  height: '250px' }}
-              ></div>
-            </MDBCol>
-            <MDBCol size='4'>
-              <div className='bg-image'
-                style={{ 
-                  backgroundImage: 
-                  "url('https://images.pexels.com/photos/8805449/pexels-photo-8805449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", 
-                  height: '250px' }}
-              ></div>
-            </MDBCol>
-          </MDBRow>
-          <MDBRow className='mt-3' end>
-            <MDBCol size='4'>
-              <div className='bg-image'
-                style={{ 
-                  backgroundImage: 
-                  "url('https://images.pexels.com/photos/12610510/pexels-photo-12610510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
-                  height: '250px' }}
-              ></div>
-            </MDBCol>
-            <MDBCol size='4'>
-              <div className='bg-image'
-                style={{ 
-                  backgroundImage: 
-                  "url('https://images.pexels.com/photos/13771968/pexels-photo-13771968.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", 
-                  height: '250px'}}
-              ></div>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-        {/* end the best trip */}
 
-        {/* start Photo */}
+        {/*==================================== 
+        * start Photo
+        ==================================== */}
         <MDBContainer className='mt-5'>
           <MDBCardTitle>
             <h1><span style={{ fontWeight: 'bold' }}>Photo</span></h1>
@@ -242,9 +208,9 @@ export default function App() {
                   src='https://images.pexels.com/photos/12078900/pexels-photo-12078900.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  
                   style={{height:faAutomobile}}  position='top' alt='...' />
                 </MDBCol> 
-                <MDBCol className='hover-zoom' end>
+                <MDBCol className='hover-zoom' start>
                   <MDBCardImage className='img-fluid rounded' 
-                  src='https://images.pexels.com/photos/14589051/pexels-photo-14589051.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' 
+                  src='https://images.pexels.com/photos/4016657/pexels-photo-4016657.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' 
                   style={{height:faAutomobile}}  position='top' alt='...' />
                 </MDBCol>
               </MDBRow>
@@ -252,10 +218,158 @@ export default function App() {
           </MDBCardBody>
         </div>
         {/* end best trip */}
-    
+
+ 
+        {/*==================================== 
+        * start Discover ...
+        ==================================== */}
+        <MDBContainer className="mt-5" fluid>
+          <MDBContainer fluid className="bg-danger" style={{height: 290}}>
+            <MDBCardTitle>
+              <h1 className="text-black"><span style={{ fontWeight: 'bold' }}>Discover the best of <br></br>travelling with us</span></h1>
+            </MDBCardTitle>
+          <Carousel
+          responsive={responsive } >
+            <div className='p-6 mt-3 me-3 mb-4'>    
+              <MDBCard>
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image'>
+                  <div className='text-center  bg-image rounded-3' 
+                    style={{ 
+                      backgroundImage:
+                      "url('https://images.pexels.com/photos/11291268/pexels-photo-11291268.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", 
+                      height: '320px' }}
+                  > </div>
+                </MDBRipple>
+              </MDBCard>
+            </div>
+            <div className='p-6 mt-3 me-3 mb-4'>    
+              <MDBCard>
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image'>
+                  <div className='text-center  bg-image rounded-3' 
+                    style={{ 
+                      backgroundImage:
+                      "url('https://images.pexels.com/photos/3214968/pexels-photo-3214968.jpeg?auto=compress&cs=tinysrgb&w=1600')", 
+                      height: '320px' }}
+                  > </div>
+                </MDBRipple>
+              </MDBCard>
+            </div>
+            <div className='p-6 mt-3 me-3 mb-4'>    
+              <MDBCard>
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image'>
+                  <div className='text-center  bg-image rounded-3' 
+                    style={{ 
+                      backgroundImage:
+                      "url('https://images.pexels.com/photos/3214969/pexels-photo-3214969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", 
+                      height: '320px' }}
+                  > </div>
+                </MDBRipple>
+              </MDBCard>
+            </div>
+            <div className='p-6 mt-3 me-3 mb-4'>    
+              <MDBCard>
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image'>
+                  <div className='text-center  bg-image rounded-3' 
+                    style={{ 
+                      backgroundImage:
+                      "url('https://images.pexels.com/photos/2108845/pexels-photo-2108845.jpeg?auto=compress&cs=tinysrgb&w=1600')", 
+                      height: '320px' }}
+                  > </div>
+                </MDBRipple>
+              </MDBCard>
+            </div>
+            <div className='p-6 mt-3 me-3 mb-4'>    
+              <MDBCard>
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image'>
+                  <div className='text-center  bg-image rounded-3' 
+                    style={{ 
+                      backgroundImage:
+                      "url('https://images.pexels.com/photos/959151/pexels-photo-959151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", 
+                      height: '320px' }}
+                  > </div>
+                </MDBRipple>
+              </MDBCard>
+            </div>
+            <div className='p-6 mt-3 me-3 mb-4'>    
+              <MDBCard>
+                <MDBRipple  rippleColor='light' rippleTag='div' className='bg-image'>
+                  <div className='text-center  bg-image rounded-3' 
+                    style={{ 
+                      backgroundImage:
+                      "url('https://images.pexels.com/photos/15288555/pexels-photo-15288555.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load')", 
+                      height: '320px' }}
+                  > </div>
+                </MDBRipple>
+              </MDBCard>
+            </div>
+          </Carousel>
+          </MDBContainer>
+          {/* End start Discover ... */}
+
+          <br></br><br></br><br></br><br></br><br></br>
+          <br></br>
+
+          {/*==================================== 
+          * start register
+          ==================================== */}
+          <MDBContainer className="mt-5">
+            <MDBRow className='mb-3'>
+              <MDBCol md='6' fluid>
+                <div className='text-center bg-image' 
+                  style={{ 
+                    backgroundImage:
+                    "url('https://images.pexels.com/photos/3127880/pexels-photo-3127880.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", 
+                    height: '570px' }}
+                > </div>
+              </MDBCol>
+              <MDBCol md='6' className="mt-2">
+              <MDBCard>
+                <MDBContainer className="mt-2">
+                  <form>  
+                    <div className="text-center mb-3">
+                        <h1 className='text-body mt-2'>Join with CamTravel</h1>
+                        <p className='text-body'>Sign up with:</p>
+                        <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
+                          <MDBBtn floating size='md' style={{ backgroundColor: '#3b5998' }}  tag='a'>
+                            <MDBIcon fab icon='facebook-f' />
+                          </MDBBtn>
+                          <MDBBtn floating size='md' style={{ backgroundColor: '#dd4b39' }}  tag='a'>
+                            <MDBIcon fab icon='google' />
+                          </MDBBtn>
+                          <MDBBtn floating size='md' style={{ backgroundColor: '#55acee' }}  tag='a'>
+                            <MDBIcon fab icon='twitter' />
+                          </MDBBtn>
+                        </div>
+                        <p className="text-center text-body mt-3">or:</p>
+                      </div>
+
+                    <MDBInput wrapperClass='mb-4' label='First Name' id='fristName1' type='text'/>
+                    <MDBInput wrapperClass='mb-4' label='Last Name' name='name' id='lastname1' type='text'/>
+                    <MDBInput wrapperClass='mb-4' label='Email' name='email' id='email1' type='email'/>
+                    <MDBInput wrapperClass='mb-4' label='Password' name='password' id='password1' type='password'/>
+                    <div className='d-flex justify-content-center text-body mb-4'>
+                      <MDBCheckbox  name='flexCheck' id='flexCheckDefault' label='Remember me' />
+                    </div>
+                    <MDBBtn type='submit' className="mb-4 w-100">Sign up</MDBBtn>  
+                  </form>
+                </MDBContainer>
+                </MDBCard>
+              </MDBCol>
+            </MDBRow>
+          </MDBContainer>
+          {/* end register */}
+
+        </MDBContainer>
       </div>
-      {/*==================== End main ================ */}
-      {/* call footer from components */}
+      {/*==================================== 
+      * End main 
+      ==================================== */}
+      
+      
+      {/*==================================== 
+      * Footer and Scrolltop
+      ==================================== */}
+      <Scrolltop/>
       <FooterDesign/>
     </div>
     </>

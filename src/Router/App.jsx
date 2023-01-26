@@ -1,4 +1,3 @@
-
 import {BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
 import Home from '../Views/Home';
 import About from '../Views/About';
@@ -13,13 +12,13 @@ import Picture from '../Views/Top-Picture'
 import Contact from '../Views/Contact'
 import { ToastContainer } from 'react-toastify';
 
-{/*--------------------------------------------------------------
-  # Router
-    -------------------------------------------------------------- */}
 function App() {
   return (
     <div className='App'>
-      <ToastContainer theme='colored'></ToastContainer>
+      <ToastContainer theme='colored' limit={2} autoClose={2000} pauseOnHover
+        draggable={false}
+        pauseOnFocusLoss={false}>
+      </ToastContainer>
       <Router>
         <Routes>
           <Route path='/' element={<Home />}/>
