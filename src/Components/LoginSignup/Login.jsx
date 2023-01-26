@@ -1,14 +1,11 @@
 import React from 'react';
 import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
-{/*--------------------------------------------------------------
-  # Login Component
-    -------------------------------------------------------------- */}
   const Login = (e) => {
 
   /** ++++++++++++++++++++++++++++++++
   #   Login Call API
   /** ++++++++++++++++++++++++++++++++ */
-  
+    
   /** ++++++++++++++++++++++++++++++++
   #   End Login Call API
   /** ++++++++++++++++++++++++++++++++ */
@@ -18,7 +15,7 @@ import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
     {/*--------------------------------------------------------------
     # Login Form
     -------------------------------------------------------------- */}
-    <form>
+    <form >
       <div className="text-center mb-3">
         <p className='text-body'>Sign in with:</p>
 
@@ -39,13 +36,13 @@ import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
       {/* Input section */}
       <div>
         <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
-        <MDBInput wrapperClass='mb-4' label='Password' id='form2' type='password'/>
+        <MDBInput wrapperClass='mb-4' label='Password' id='form2'/>
         <div className="d-flex justify-content-between mx-4 mb-4 text-body">
-          <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Remember me' />
+          <MDBCheckbox id='remember' label='Show Password' />
           <a href="!#">Forgot password?</a>
         </div>
         <MDBBtn type='submit' className="mb-4 w-100">Sign in</MDBBtn>
-        <p className="text-center text-body">Not a member? <a href="/Place"> Register</a></p>
+        <p className="text-center text-body">Not a member? <a href="/Signup"> Register</a></p>
       </div>
     </form>
       {/* End Input section */}          

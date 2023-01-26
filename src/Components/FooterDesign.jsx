@@ -1,9 +1,7 @@
 
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
-{/*--------------------------------------------------------------
-  # Footer Component
-    -------------------------------------------------------------- */}
+
 export default function FooterDesign() {
   return (
     <MDBFooter bgColor='light' className='text-center text-lg-start text-muted mt-5'>
@@ -13,22 +11,22 @@ export default function FooterDesign() {
         </div>
 
         <div>
-          <a href='' className='me-4 text-reset'>
+          <a href='/' className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='facebook-f' />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='/' className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='twitter' />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='/' className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='google' />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='/' className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='instagram' />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='/' className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='linkedin' />
           </a>
-          <a href='' className='me-4 text-reset'>
+          <a href='/' className='me-4 text-reset'>
             <MDBIcon color='secondary' fab icon='github' />
           </a>
         </div>

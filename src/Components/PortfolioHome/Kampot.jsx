@@ -1,4 +1,3 @@
-
 import FooterDesign from '../FooterDesign';
 import Navbar from '../Navbar';
 import { MDBIframe } from 'mdbreact';
@@ -7,11 +6,8 @@ import {
   MDBCard, MDBRipple, MDBContainer, MDBRow, MDBCol, MDBBreadcrumb, MDBBreadcrumbItem, MDBCardHeader,
   MDBCardBody, MDBCardFooter
 } from 'mdb-react-ui-kit';
+import Scrolltop from '../Scrolltop';
 
-
-{/*--------------------------------------------------------------
-  # Kampot Component
-    -------------------------------------------------------------- */}
 export default function Kampot() {
 
  /** carousel frame item place */
@@ -134,16 +130,10 @@ export default function Kampot() {
             <MDBCard alignment='center'>
               <MDBCardHeader><h3><span style={{ fontWeight: 'bold' }}>Location</span></h3></MDBCardHeader>
               <MDBCardBody>
-              <MDBContainer className="text-center">
+                <MDBContainer className="text-center">
                   <MDBIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62749.57590469787!2d104.13313811931923!3d10.591016186354029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x310836897d5fd26f%3A0x6f50ed443bd607ff!2sKrong%20Kampot!5e0!3m2!1sen!2skh!4v1673361424351!5m2!1sen!2skh" />
                 </MDBContainer>
               </MDBCardBody>
-              <MDBCardFooter className='text-muted text-start'><span style={{ fontWeight: 'bold' }}>Kampot </span>
-              ,this province is located in the Southwest of the country, having an eighty kilometres coastal strip with 
-              the Gulf of Thailand. The provincial capital is named Kampot and sits near the base of the abundant green 
-              Elephant Mountains and the famous Bokor Hill Station. Compete to crowded Sihanoukville in the North of the 
-              province you may find quietness.
-              </MDBCardFooter>
             </MDBCard>
           </MDBCol>
           {/* End content info */}
@@ -152,7 +142,11 @@ export default function Kampot() {
         {/* +++++++++++++ End Portfolio +++++++++++++*/}
         <MDBContainer className='mt-3 text-muted text-start' breakpoint='md' fluid>
           <MDBCard>
-            <MDBCardFooter>
+            <MDBCardFooter className='text-muted text-start'><span style={{ fontWeight: 'bold' }}>Kampot </span>
+              ,this province is located in the Southwest of the country, having an eighty kilometres coastal strip with 
+              the Gulf of Thailand. The provincial capital is named Kampot and sits near the base of the abundant green 
+              Elephant Mountains and the famous Bokor Hill Station. Compete to crowded Sihanoukville in the North of the 
+              province you may find quietness.
               Kep Beach, Rabbit Island, Bokor Hill Station, and countryside tours are perhaps the most popular day 
               tours out of Kampot with tour operators offering very competitively priced tours. <br></br><br></br>
               The Kampot area also offers several other attractions including pre-Angkorian ruins and caves, 
@@ -177,9 +171,9 @@ export default function Kampot() {
       </MDBContainer>
       {/* ======================== End Main ======================== */}
 
-      {/* ======================== Footer ======================== */}
+      {/* ======================== Footer and Scrolltop ======================== */}
+      <Scrolltop/>
       <FooterDesign/>
-      {/* ======================== End Footer ======================== */}
       
     </>
   );

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Scrollchor } from 'react-scrollchor';
 import {  } from 'mdb-react-ui-kit';
@@ -7,10 +6,6 @@ import {
   MDBNavbar, MDBContainer
 } from 'mdbreact';
 import { Link } from 'react-router-dom';
-
-{/*--------------------------------------------------------------
-  # Navbar Component
-    -------------------------------------------------------------- */}
 class Navbar extends React.Component {
 
   constructor(props) {
@@ -34,7 +29,7 @@ class Navbar extends React.Component {
         fixed="top" expand="md" scrolling transparent>
           <MDBContainer fluid breakpoint='md'>
             <MDBNavbarBrand className="flex-center hoverable h6-responsive">
-            <a href="http://localhost:3001/" className="text-danger" target="_blank" rel="">
+            <a href="http://localhost:3001/" className="text-danger" target="_blank" rel="noopener noreferrer">
               <MDBIcon fab icon="github-alt"/><span style={{ fontWeight: 'bold' }}> CamTravel</span></a>
             </MDBNavbarBrand>
             {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
