@@ -1,10 +1,16 @@
 import React from "react";
 import {
-    MDBRow, MDBCol, MDBContainer
+    MDBRow, MDBCol, MDBContainer, MDBCardImage
 } from "mdb-react-ui-kit";
 import Records from "./record.json"
+import { useState } from "react";
+import Download from "./Downlaod";
+import Profile from "./Profile";
 
 function PhotoImage() {
+    /** Hover download profile and save */
+    const [isShown, setIsShown] = useState(false);
+
 
     return (
         <>
@@ -12,14 +18,42 @@ function PhotoImage() {
         * Main
         ==================================== */}
         <MDBContainer fluid>
+   
             <div>
-                <MDBRow className='row-cols-2 row-cols-md-3 row-cols-lg-4  g-0 g-lg-0 '>
+                <MDBRow className='row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4  g-0 g-lg-0 '>
                     {
-                        Records && Records.map( records => {
+                      Records &&  Records.map( results => { 
                             return (    
-                                <MDBCol>          
+                                <MDBCol >          
                                     <div className='p-3' >            
-                                        <img src={records.image} className='img-fluid' alt=''/>
+                                        <div className='text-center bg-image'>
+                                            <img src={results.image} className='img-fluid' alt=''/>
+                                            <div className='mask'
+                                            onMouseEnter={() => setIsShown(true)}
+                                            onMouseLeave={() => setIsShown(false)}
+                                            >
+                                                <div className='d-flex h-100'>
+                                                    <div className='text-white '>
+                                                        {isShown && (
+                                                            <div>
+                                                                {/* Download Design */}
+                                                                <Download
+                                                                image = {results.image}
+                                                                />
+                                                                {/* End Download Design  */}
+
+                                                                {/* Profile Design */}
+                                                                 <Profile
+                                                                 name = {results.name}
+                                                                 profile = {results.profile}
+                                                                 />
+                                                                {/* End Profile Design */}
+                                                            </div>  
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>   
                                 </MDBCol>  
                             )
@@ -33,14 +67,3 @@ function PhotoImage() {
 }
 
 export default PhotoImage;
-
-           
-               
-               
-{/* <MDBRow className='row-cols-2 row-cols-lg-4 g-0 g-lg-0 '>
-<MDBCol>          
-<div className='p-3' >            
-    <img src={records.image} className='img-fluid' alt=''/>
-</div>   
-</MDBCol>  
-</MDBRow> */}
