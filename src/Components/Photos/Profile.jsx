@@ -8,7 +8,7 @@ const Profile = ({name, profile}) => {
       style={{
       bottom: "10px", left:"5px" 
       }} >
-      <Link to = "UserAccount">
+      <Link to = "/userAccount">
       <div className="d-flex " style={{cursor:'pointer'}}>
           <div className="flex-shrink-0">
             <MDBCardImage
