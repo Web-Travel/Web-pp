@@ -13,13 +13,16 @@ import Contact from '../Views/Contact'
 import { ToastContainer } from 'react-toastify';
 import UserAccount from '../Components/UserAccounts/UserAccounts';
 
+import 'react-toastify/dist/ReactToastify.css';
+import Login from '../Components/LoginSignup/Login';
+import Signup from '../Components/LoginSignup/Signup'
+import Join from '../Components/LoginSignup/Join';
+
 function App() {
   return (
     <div className='App'>
-      <ToastContainer theme='colored' limit={2} autoClose={2000} pauseOnHover
-        draggable={false}
-        pauseOnFocusLoss={false}>
-      </ToastContainer>
+      <ToastContainer/>
+    
       <Router>
         <Routes>
           
@@ -35,6 +38,10 @@ function App() {
           <Route path = '/phnomPenh' element = {<PhnomPenh />}/>
           <Route path = '/sihanouk' element = {<Sihanouk />}/>
           <Route path = '/kampot' element = {<Kampot />}/>
+
+          <Route path = '/join' element = {<Join />}/>
+          <Route path = '/login' element = {<Login />}/>
+          <Route path = '/signup' element = {<Signup />}/>
 
           <Route path = '/userAccount' element = {<UserAccount/>} />
 
