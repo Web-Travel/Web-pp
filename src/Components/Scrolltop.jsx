@@ -27,10 +27,13 @@ export default function Scrolltop() {
     }
   }
 
+  /** Function back to top */
   function backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
+  /** End Function back to top */
+  
   return (
     <MDBContainer>
       <MDBBtn 

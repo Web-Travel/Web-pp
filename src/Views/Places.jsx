@@ -1,11 +1,22 @@
 import React from 'react';
+import PlacesDesign from '../Components/Places/PlacesDesign';
+import Navbar from '../Components/SidebarBeforeLogin/Navbar';
+import FooterDeign from '../Components/FooterDesign';
+import Scrolltop from '../Components/Scrolltop'
+
 
 function Places() {
     return (
         <>
+        <Navbar/>
+        
         <div>
-            Places
+            <PlacesDesign/>
         </div>
+
+
+        <Scrolltop/>
+        <FooterDeign/>
         </>
     );
 }

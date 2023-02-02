@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from "../Components/Navbar"
+import Navbar from '../Components/SidebarBeforeLogin/Navbar';
 import Scrolltop from '../Components/Scrolltop';
 import PhotoImage from '../Components/Photos/PhotoImage';
 import photoBg from "../Assets/Image/photos.jpeg"

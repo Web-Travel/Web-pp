@@ -1,11 +1,68 @@
 import React from 'react';
 import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+
   const Login = (e) => {
 
   /** ++++++++++++++++++++++++++++++++
   #   Login Call API
   /** ++++++++++++++++++++++++++++++++ */
+  const [email, emailupdate] = useState('');
+  const [password, passwordupdate] = useState('');
+
+  const usenavigate = useNavigate();
+
+  useEffect(()=>{
+  sessionStorage.clear();
+  },[]);
+
+  const ProceedLogin = (e) => {
+    e.preventDefault();
+    if(validate()){
+    /// implementation
+    // console.log('proceed');
+    fetch("http://localhost:8001/user/"+email).then((res)=>{
+        return res.json();
+    }).then((resp)=>{
+        console.log(resp)
+        if(Object.keys(resp).length===0){
+            toast.error('Please Enter valid email.');
+        }else{
+            if(resp.password === password) {
+                toast.success('Success');
+                sessionStorage.setItem('email', email);
+                usenavigate('/photos')
+            }else{
+                toast.error('Please Enter valid credentials.')
+            }
+        }
+    }).catch((err)=>{
+        toast.error('Login Failed due to '+err.message);
+    })
     
+    }
+  }
+
+
+  const validate = () => {
+      let result = true;
+      if (email === '' || email === null) {
+          result = false;
+          toast.warning('Please Enter Email');
+      }
+      if (password === '' || password === null) {
+          result = false;
+          toast.warning('Please Enter Password');
+      }
+      return result;
+  }
+
+
+  // handle password eye
+  
   /** ++++++++++++++++++++++++++++++++
   #   End Login Call API
   /** ++++++++++++++++++++++++++++++++ */
@@ -15,7 +72,7 @@ import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
     {/*--------------------------------------------------------------
     # Login Form
     -------------------------------------------------------------- */}
-    <form >
+    <form onSubmit={ProceedLogin}>
       <div className="text-center mb-3">
         <p className='text-body'>Sign in with:</p>
 
@@ -35,14 +92,14 @@ import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
 
       {/* Input section */}
       <div>
-        <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
-        <MDBInput wrapperClass='mb-4' label='Password' id='form2'/>
+        <MDBInput value={email} onChange={e => emailupdate(e.target.value)} wrapperClass='mb-4' label='Email' type='text'/>
+        <MDBInput value={password} onChange={e => passwordupdate(e.target.value)} wrapperClass='mb-4' label='Password' type='password' />
         <div className="d-flex justify-content-between mx-4 mb-4 text-body">
           <MDBCheckbox id='remember' label='Show Password' />
           <a href="!#">Forgot password?</a>
         </div>
         <MDBBtn type='submit' className="mb-4 w-100">Sign in</MDBBtn>
-        <p className="text-center text-body">Not a member? <a href="/Signup"> Register</a></p>
+        <p className="text-center text-body">Not a member? <a href="/"> Register</a></p>
       </div>
     </form>
       {/* End Input section */}          

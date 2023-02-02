@@ -1,5 +1,5 @@
 import FooterDesign from '../FooterDesign';
-import Navbar from '../Navbar';
+import Navbar from '../SidebarBeforeLogin/Navbar';
 import { MDBIframe } from 'mdbreact';
 import Carousel from 'react-multi-carousel';
 import {
