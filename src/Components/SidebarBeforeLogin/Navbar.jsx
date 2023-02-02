@@ -11,8 +11,7 @@ import {
 import { Spin as Hamburger } from 'hamburger-react'
 import { MDBNavItem } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
-import PostButton from './Sidebar/PostButton';
-import Join from './LoginSignup/Join';
+import Upload from './Upload';
 
 
 export default function Navbar() {
@@ -42,7 +41,7 @@ export default function Navbar() {
           aria-expanded='false'
           aria-label='Toggle navigation' 
         >
-          <PostButton/>
+          <Upload/>
         </MDBNavbarToggler>
 
         {/* <MDBNavbarToggler
@@ -94,7 +93,7 @@ export default function Navbar() {
           </MDBNavbarNav>
 
           {/* Call PostButtom from PostButtom file*/}
-          <PostButton/>
+          <Upload/>
           {/* End Profile */}
           {/* <Join absolute/> */}
 

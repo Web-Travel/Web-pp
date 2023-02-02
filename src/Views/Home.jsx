@@ -3,7 +3,7 @@ import "react-multi-carousel/lib/styles.css";
 import { faAutomobile } from '@fortawesome/free-solid-svg-icons';
 import Join from '../Components/LoginSignup/Join';
 import FooterDesign from '../Components/FooterDesign';
-import Navbar from "../Components/Navbar";
+import Navbar from '../Components/SidebarBeforeLogin/Navbar';
 import { Link } from "react-router-dom";
 import homeBg from "../Assets/Image/home.jpeg"
 import {

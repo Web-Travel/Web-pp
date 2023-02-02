@@ -16,7 +16,7 @@ import {
   MDBListGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
-import Navbar from '../Navbar';
+import Navbar from '../SidebarBeforeLogin/Navbar';
 
 export default function UserAccount() {
   return (
