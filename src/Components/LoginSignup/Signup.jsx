@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+
 const Signup = () => {
 
   /** ++++++++++++++++++++++++++++++++
@@ -55,13 +56,13 @@ const Signup = () => {
           let regobj = { username, fullname, password, email};
           if (IsValidate()) {
           //console.log(regobj);
-          fetch(" http://localhost:8001/user", {
+          fetch("http://localhost:8001/user", {
               method: "POST",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(regobj)
           }).then((res) => {
               toast.success('Registered successfully.' +res.message)
-              navigate('/join');
+              navigate('/homeAfterLogin');
           }).catch((err) => {
               toast.error('Failed :' + err.message);
           });
@@ -72,7 +73,19 @@ const Signup = () => {
   /** ++++++++++++++++++++++++++++++++ */
 
   
-  
+  // const [type, setType]=useState('password');
+  // const [icon, setIcon]=useState(eyeOff);
+ 
+  // const handleToggle=()=>{
+  //     if(type === 'password'){
+  //         setIcon(eye);
+  //         setType('text');
+  //     }else{
+  //         setIcon(eyeOff);
+  //         setType('password');
+  //     }
+  // }
+
   return (
     <>
     {/*--------------------------------------------------------------

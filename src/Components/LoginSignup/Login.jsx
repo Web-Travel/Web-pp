@@ -24,7 +24,7 @@ import { toast } from "react-toastify";
     if(validate()){
     /// implementation
     // console.log('proceed');
-    fetch('http://localhost:8001/user/'+email).then((res)=>{
+    fetch("http://localhost:8001/user/"+email).then((res)=>{
         return res.json();
     }).then((resp)=>{
         console.log(resp)
@@ -62,18 +62,7 @@ import { toast } from "react-toastify";
 
 
   // handle password eye
-  // const [type, setType]=useState('password');
-  // const [icon, setIcon]=useState(eyeOff);
- 
-  // const handleToggle=()=>{
-  //     if(type === 'password'){
-  //         setIcon(eye);
-  //         setType('text');
-  //     }else{
-  //         setIcon(eyeOff);
-  //         setType('password');
-  //     }
-  // }
+  
   /** ++++++++++++++++++++++++++++++++
   #   End Login Call API
   /** ++++++++++++++++++++++++++++++++ */

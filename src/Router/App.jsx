@@ -14,9 +14,11 @@ import { ToastContainer } from 'react-toastify';
 import UserAccount from '../Components/UserAccounts/UserAccounts';
 
 import 'react-toastify/dist/ReactToastify.css';
-import Login from '../Components/LoginSignup/Login';
-import Signup from '../Components/LoginSignup/Signup'
-import Join from '../Components/LoginSignup/Join';
+
+import NavbarAfterLogin from '../Components/Sidebar/NavbarAfterLogin';
+import PostButton from '../Components/Sidebar/PostButton';
+import NavbarProfile from '../Components/Sidebar/NavbarProfile';
+import HomeAfterLogin from '../Views/AfterLogin/HomeAfterLogin';
 
 function App() {
   return (
@@ -39,9 +41,11 @@ function App() {
           <Route path = '/sihanouk' element = {<Sihanouk />}/>
           <Route path = '/kampot' element = {<Kampot />}/>
 
-          <Route path = '/join' element = {<Join />}/>
-          <Route path = '/login' element = {<Login />}/>
-          <Route path = '/signup' element = {<Signup />}/>
+          <Route path = '/navbarAfterLogin' element = {< NavbarAfterLogin />}/>
+          <Route path = '/postButtom' element = {< PostButton />}/>
+          <Route path = '/navbarProfile' element = {< NavbarProfile />}/>
+
+          <Route path = '/homeAfterLogin' element = {< HomeAfterLogin />}/>
 
           <Route path = '/userAccount' element = {<UserAccount/>} />
 

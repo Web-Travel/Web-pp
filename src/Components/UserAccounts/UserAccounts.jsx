@@ -22,7 +22,7 @@ export default function UserAccount() {
   return (
     <section style={{ backgroundColor: '#eee' }}>
       <Navbar/>
-      <br></br> <br></br> <br></br>  <br></br>
+      <br></br> <br></br> 
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol>
