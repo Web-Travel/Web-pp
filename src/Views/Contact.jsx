@@ -1,12 +1,12 @@
-
 import React from 'react';
-{/*--------------------------------------------------------------
-  # Contact Page
-    -------------------------------------------------------------- */}
+import Navbar from '../Components/SidebarBeforeLogin/Navbar';
+
 function Contact() {
     return (
         <>
         <div>
+            <Navbar/>
+            <br></br><br></br><br></br>
             This is contact page
         </div>
 

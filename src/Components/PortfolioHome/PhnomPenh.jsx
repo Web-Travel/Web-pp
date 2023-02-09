@@ -1,15 +1,13 @@
 import FooterDesign from '../FooterDesign';
-import Navbar from '../Navbar';
+import Navbar from '../SidebarBeforeLogin/Navbar';
 import { MDBIframe } from 'mdbreact';
 import Carousel from 'react-multi-carousel';
 import {
   MDBCard, MDBRipple, MDBContainer, MDBRow, MDBCol, MDBBreadcrumb, MDBBreadcrumbItem, MDBCardHeader,
   MDBCardBody, MDBCardFooter
 } from 'mdb-react-ui-kit';
+import Scrolltop from '../Scrolltop';
 
-{/*--------------------------------------------------------------
-  # Phnom Penh Component
-    -------------------------------------------------------------- */}
 export default function PhnomPenh() {
 
  /** carousel frame item place */
@@ -132,15 +130,10 @@ export default function PhnomPenh() {
             <MDBCard alignment='center'>
               <MDBCardHeader><h3><span style={{ fontWeight: 'bold' }}>Location</span></h3></MDBCardHeader>
               <MDBCardBody>
-              <MDBContainer className="text-center">
-           
+                <MDBContainer className="text-center">
                   <MDBIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250151.15121032574!2d104.75010203308362!3d11.579666931912387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109513dc76a6be3%3A0x9c010ee85ab525bb!2sPhnom%20Penh!5e0!3m2!1sen!2skh!4v1673357786719!5m2!1sen!2skh" />
                 </MDBContainer>
               </MDBCardBody>
-              <MDBCardFooter className='text-muted text-start'><span style={{ fontWeight: 'bold' }}>Phnom Penh</span>
-              , also spelled Pnom Penh or Phom Penh, Khmer Phnum Pénh, capital and chief city of Cambodia. It lies at the 
-              confluence of the Basăk (Bassac), Sab, and Mekong river systems, in the south-central part of the country.
-              </MDBCardFooter>
             </MDBCard>
           </MDBCol>
           {/* End content info */}
@@ -149,7 +142,10 @@ export default function PhnomPenh() {
         {/* +++++++++++++ End Portfolio +++++++++++++*/}
         <MDBContainer className='mt-3 text-muted text-start' breakpoint='md' fluid>
           <MDBCard>
-            <MDBCardFooter>
+          <MDBCardFooter className='text-muted text-start'><span style={{ fontWeight: 'bold' }}>Phnom Penh</span>
+              , also spelled Pnom Penh or Phom Penh, Khmer Phnum Pénh, capital and chief city of Cambodia. It lies at the 
+              confluence of the Basăk (Bassac), Sab, and Mekong river systems, in the south-central part of the country. 
+              <br></br><br></br>
               Phnom Penh was founded in 1434 to succeed Angkor Thom as the capital of the Khmer nation but was abandoned 
               several times before being reestablished in 1865 by King Norodom. The city formerly functioned as a processing 
               centre, with textiles, pharmaceuticals, machine manufacturing, and rice milling. Its chief assets, however, 
@@ -164,9 +160,9 @@ export default function PhnomPenh() {
       </MDBContainer>
       {/* ======================== End Main ======================== */}
 
-      {/* ======================== Footer ======================== */}
+      {/* ======================== Footer and Scrolltop ======================== */}
+      <Scrolltop/>
       <FooterDesign/>
-      {/* ======================== End Footer ======================== */}
       
     </>
   );

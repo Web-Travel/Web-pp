@@ -7,10 +7,6 @@ import {
   MDBContainer, MDBTabs, MDBTabsItem, MDBTabsLink, MDBTabsContent, MDBTabsPane,
 } from 'mdb-react-ui-kit';
 
-
-{/*--------------------------------------------------------------
-  # Login and Sign up with Pop Up alert
-    -------------------------------------------------------------- */}
 export default function Join() {
   const [staticModal, setStaticModal] = useState(false);
   const toggleShow = () => setStaticModal(!staticModal);

@@ -1,79 +1,91 @@
-
-import React, { useState } from 'react';
 import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
-import { toast } from 'react-toastify';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-{/*--------------------------------------------------------------
-  # Sign up Components
-    -------------------------------------------------------------- */}
+import { toast } from 'react-toastify';
+
+
 const Signup = () => {
 
   /** ++++++++++++++++++++++++++++++++
   #  Sign up Call API
   /** ++++++++++++++++++++++++++++++++ */
-  const [id, idChange] = useState('');
-  const [name, nameChange] = useState('');
-  const [email, emailChange] = useState('');
-  const [password, passwordChange] = useState('');
+  const [username, usernamechange] = useState("");
+  const [fullname, fullnamechange] = useState("");
+  const [email, emailchange] = useState("");
+  const [password, passwordchange] = useState("");
 
-  const naviagte = useNavigate ();
+  const navigate = useNavigate();
 
   const IsValidate = () => {
-    let isProcessed = true;
-    let errorMessage = 'Please enter the value in ';
+      let isproceed = true;
+      let errormessage = 'Please enter the value in ';
 
-    if (id === null || id === '') {
-        isProcessed = false;
-        errorMessage += ' First Name';
-    }
-    if (name === null || name === '') {
-        isProcessed = false;
-        errorMessage += ' Last Name';
-    }
-    if (email === null || email === '') {
-      isProcessed = false;
-      errorMessage += ' Email';
-    }
-    if (password === null || password === '') {
-        isProcessed = false;
-        errorMessage += ' Password';
-    }
-    // if(!isProcessed){
-    //     toast.warning(errorMessage)
-    // }
-    // else{
-    //     if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+      if (username === null || username === '') {
+          isproceed = false;
+          errormessage += ' Username';
+      }
+      if (fullname === null || fullname === '') {
+          isproceed = false;
+          errormessage += ' Fullname';
+      }
+      if (email === null || email === '') {
+        isproceed = false;
+        errormessage += ' Email';
+      }
+      if (password === null || password === '') {
+          isproceed = false;
+          errormessage += ' Password';
+      }
+      
+      if(!isproceed){
+          toast.warning(errormessage)
+      }
+      else{
+          if(/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)){
+          }else{
+              isproceed = false;
+              toast.warning('Please enter the valid email')
+          }
+      }
+      return isproceed;
+  }
 
-    //     }else{
-    //         isProcessed = false;
-    //         toast.warning('Please enter the valid email')
-    //     }
-    // }
-    return isProcessed;
-}
 
   const handlesubmit = (e) => {
-    e.preventDefault();
-    let regobj = { id, name, password, email };
-    
-    if (IsValidate()) {
-      fetch("http://localhost:8000/user", {
-          method: "POST",
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(regobj)
-      }).then((res) => {
-          toast.success('Registered successfully.')
-          naviagte('/Photos');
-      }).catch((err) => {
-          toast.error('Failed :' + err.message);
-      });
-    }
-    console.log(regobj);
-}
+          e.preventDefault();
+          let regobj = { username, fullname, password, email};
+          if (IsValidate()) {
+          //console.log(regobj);
+          fetch("http://localhost:8001/user", {
+              method: "POST",
+              headers: { 'content-type': 'application/json' },
+              body: JSON.stringify(regobj)
+          }).then((res) => {
+              toast.success('Registered successfully.' +res.message)
+              navigate('/homeAfterLogin');
+          }).catch((err) => {
+              toast.error('Failed :' + err.message);
+          });
+      }
+  }
   /** ++++++++++++++++++++++++++++++++
   #  End Sign up Call API
   /** ++++++++++++++++++++++++++++++++ */
+
   
+  // const [type, setType]=useState('password');
+  // const [icon, setIcon]=useState(eyeOff);
+ 
+  // const handleToggle=()=>{
+  //     if(type === 'password'){
+  //         setIcon(eye);
+  //         setType('text');
+  //     }else{
+  //         setIcon(eyeOff);
+  //         setType('password');
+  //     }
+  // }
+
   return (
     <>
     {/*--------------------------------------------------------------
@@ -99,12 +111,28 @@ const Signup = () => {
 
         {/* Input section */}
 
-          <MDBInput value={id} onChange={e=>idChange(e.target.value)} wrapperClass='mb-4' label='First Name' id='fristName1' type='text'/>
-          <MDBInput value={name} onChange={e=>nameChange(e.target.value)} wrapperClass='mb-4' label='Last Name' name='name' id='lastname1' type='text'/>
-          <MDBInput value={email} onChange={e=>emailChange(e.target.value)} wrapperClass='mb-4' label='Email' name='email' id='email1' type='email'/>
-          <MDBInput value={password} onChange={e=>passwordChange(e.target.value)} wrapperClass='mb-4' label='Password' name='password' id='password1' type='password'/>
-          <div className='d-flex justify-content-center text-body mb-4'>
-            <MDBCheckbox checked name='flexCheck' id='flexCheckDefault' label='I have read and agree to the terms' />
+          <MDBInput 
+          value={username} onChange={e => usernamechange(e.target.value)} 
+          wrapperClass='mb-4' label='Username' id='username' type='text'
+          />
+
+          <MDBInput 
+          value={fullname} onChange={e => fullnamechange(e.target.value)} 
+          wrapperClass='mb-4' label='Full name' id='fullname' type='text'
+          />
+
+          <MDBInput 
+          value={email} onChange={e => emailchange(e.target.value)} 
+          wrapperClass='mb-4' label='Email'  id='email1' type='email'
+          />
+
+          <MDBInput 
+          value={password} onChange={e => passwordchange(e.target.value)} 
+          wrapperClass='mb-4' label='Password' id='password1' type='password'
+          />
+
+          <div className='d-flex text-body mb-4'>
+            <MDBCheckbox label='Show Password' />
           </div>
           <MDBBtn type='submit' className="mb-4 w-100">Sign up</MDBBtn>
       

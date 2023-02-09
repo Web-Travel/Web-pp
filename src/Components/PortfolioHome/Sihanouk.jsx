@@ -1,15 +1,13 @@
 import FooterDesign from '../FooterDesign';
-import Navbar from '../Navbar';
+import Navbar from '../SidebarBeforeLogin/Navbar';
 import { MDBIframe } from 'mdbreact';
 import Carousel from 'react-multi-carousel';
 import {
   MDBCard, MDBRipple, MDBContainer, MDBRow, MDBCol, MDBBreadcrumb, MDBBreadcrumbItem, MDBCardHeader,
   MDBCardBody, MDBCardFooter
 } from 'mdb-react-ui-kit';
+import Scrolltop from '../Scrolltop';
 
-{/*--------------------------------------------------------------
-  # Preah Sihanouk Component
-    -------------------------------------------------------------- */}
 export default function Sihanouk() {
 
  /** carousel frame item place */
@@ -132,15 +130,10 @@ export default function Sihanouk() {
             <MDBCard alignment='center'>
               <MDBCardHeader><h3><span style={{ fontWeight: 'bold' }}>Location</span></h3></MDBCardHeader>
               <MDBCardBody>
-              <MDBContainer className="text-center">
+                <MDBContainer className="text-center">
                   <MDBIframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d250939.90730685022!2d103.24689016616912!3d10.662071780930058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3107e1dd2f564c45%3A0x13f1f8da254362ed!2sPreah%20Sihanouk!5e0!3m2!1sen!2skh!4v1673361277961!5m2!1sen!2skh" />
                 </MDBContainer>
               </MDBCardBody>
-              <MDBCardFooter className='text-muted text-start'><span style={{ fontWeight: 'bold' }}>Preah Sihanouk </span>
-              province, named after King Norodom Sihanouk since its independence from France in 1953, is known locally as Kampong Som.
-              <br></br><br></br> Located 230 kilometers southwest of the Capital Phnom Penh, the province of Kampong Som 
-              has become one of the best seaside destinations in Asia. 
-              </MDBCardFooter>
             </MDBCard>
           </MDBCol>
           {/* End content info */}
@@ -148,7 +141,10 @@ export default function Sihanouk() {
         {/* +++++++++++++ End Portfolio +++++++++++++*/}
         <MDBContainer className='mt-3 text-muted text-start' breakpoint='md' fluid>
           <MDBCard>
-            <MDBCardFooter>
+            <MDBCardFooter className='text-muted text-start'><span style={{ fontWeight: 'bold' }}>Preah Sihanouk </span>
+              province, named after King Norodom Sihanouk since its independence from France in 1953, is known locally as Kampong Som.
+              <br></br><br></br> Located 230 kilometers southwest of the Capital Phnom Penh, the province of Kampong Som 
+              has become one of the best seaside destinations in Asia. 
               Known for its fabulous beaches, 
               the province revolves around fabulous seafood, water-sports, and its surrounding islands. The popular beaches 
               that line the contour of the city from north to south are the Victory Beach, Deum Chrey Beach, Independence 
@@ -167,10 +163,9 @@ export default function Sihanouk() {
       </MDBContainer>
       {/* ======================== End Main ======================== */}
 
-      {/* ======================== Footer ======================== */}
+      {/* ======================== Footer and Scrolltop ======================== */}
+      <Scrolltop/>
       <FooterDesign/>
-      {/* ======================== End Footer ======================== */}
-      
     </>
   );
 }

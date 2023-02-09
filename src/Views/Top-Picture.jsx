@@ -1,12 +1,10 @@
-
 import React from 'react';
+import Navbar from '../Components/SidebarBeforeLogin/Navbar';
 
-{/*--------------------------------------------------------------
-  # Top-Picture Page
-    -------------------------------------------------------------- */}
 function Picture() {
     return (
         <>
+        <Navbar/>
         <div>
             <html lang="en">
             <head>
@@ -16,6 +14,7 @@ function Picture() {
                 <title>Document</title>
             </head>
             <body>
+            <br></br><br></br><br></br><br></br>
                 <h1>Top Picture using</h1>
                 
             </body>
