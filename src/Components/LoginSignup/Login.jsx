@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
   /** ++++++++++++++++++++++++++++++++
   #   Login Call API
   /** ++++++++++++++++++++++++++++++++ */
-  const [username, usernameupdate] = useState('');
+  const [id, idupdate] = useState('');
   const [password, passwordupdate] = useState('');
 
   const usenavigate = useNavigate();
@@ -24,7 +24,7 @@ import { toast } from "react-toastify";
     if(validate()){
     /// implementation
     // console.log('proceed');
-    fetch('https://testapi-9qwq.onrender.com/user/'+username).then((res)=>{
+    fetch('https://json-api-test.onrender.com/user/'+id).then((res)=>{
         return res.json();
     }).then((resp)=>{
         console.log(resp)
@@ -33,7 +33,7 @@ import { toast } from "react-toastify";
         }else{
             if(resp.password === password) {
                 toast.success('Success');
-                sessionStorage.setItem('username', username);
+                sessionStorage.setItem('username', id);
                 usenavigate('/homelog');
             }else{
                 toast.error('Please Enter valid credentials.')
@@ -49,7 +49,7 @@ import { toast } from "react-toastify";
 
   const validate = () => {
       let result = true;
-      if (username === '' || username === null) {
+      if (id === '' || id === null) {
           result = false;
           toast.warning('Please Enter username');
       }
@@ -111,7 +111,7 @@ import { toast } from "react-toastify";
 
       {/* Input section */}
       <div>
-        <MDBInput value={username} onChange={e => usernameupdate(e.target.value)} wrapperClass='mb-4' label='username' name='username' type='text'/>
+        <MDBInput value={id} onChange={e => idupdate(e.target.value)} wrapperClass='mb-4' label='Username' name='id' type='text'/>
         <MDBInput value={password} onChange={e => passwordupdate(e.target.value)} wrapperClass='mb-4' label='Password' name='password' type='password' />
         <div className="d-flex justify-content-between mx-4 mb-4 text-body">
           <MDBCheckbox id='remember' label='Show Password' />
