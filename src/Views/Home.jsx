@@ -5,7 +5,9 @@ import Join from '../Components/LoginSignup/Join';
 import FooterDesign from '../Components/FooterDesign';
 import Navbar from '../Components/SidebarBeforeLogin/Navbar';
 import { Link } from "react-router-dom";
-import homeBg from "../Assets/Image/home.jpeg"
+import homeBg from "../Assets/Image/home.jpeg";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   MDBContainer,  MDBCard, MDBCardImage, MDBCardBody, MDBRow,
   MDBCol, MDBRipple, MDBCardTitle, MDBCardText, MDBInput, MDBCheckbox, MDBBtn, MDBIcon
@@ -13,6 +15,22 @@ import {
 import Scrolltop from "../Components/Scrolltop";
 
 export default function App() {
+
+  const usenavigate = useNavigate();
+
+    // Use Effect to clear login data
+    useEffect(()=>{
+      sessionStorage.clear();
+  },[]);
+
+  useEffect(() => {
+
+    const token = sessionStorage.getItem("token");
+    if(token){
+      usenavigate("/homelog");
+    }
+
+  }, []);
 
   /** carousel frame item place */
   const responsive = {
