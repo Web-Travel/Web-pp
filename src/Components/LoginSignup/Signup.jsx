@@ -11,7 +11,7 @@ const Signup = () => {
   /** ++++++++++++++++++++++++++++++++
   #  Sign up Call API
   /** ++++++++++++++++++++++++++++++++ */
-  const [username, usernamechange] = useState("");
+  const [id, idchange] = useState("");
   const [fullname, fullnamechange] = useState("");
   const [email, emailchange] = useState("");
   const [password, passwordchange] = useState("");
@@ -22,9 +22,9 @@ const Signup = () => {
       let isproceed = true;
       let errormessage = 'Please enter the value in ';
 
-      if (username === null || username === '') {
+      if (id === null || id === '') {
           isproceed = false;
-          errormessage += ' Username';
+          errormessage += ' id';
       }
       if (fullname === null || fullname === '') {
           isproceed = false;
@@ -55,16 +55,17 @@ const Signup = () => {
 
   const handlesubmit = (e) => {
           e.preventDefault();
-          let regobj = { username, fullname, password, email};
+          let regobj = { id, fullname, password, email};
           if (IsValidate()) {
           //console.log(regobj);
-          fetch('https://testapi-9qwq.onrender.com/user', {
+          fetch('https://json-api-test.onrender.com/user', {
               method: "POST",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(regobj)
           }).then((res) => {
               toast.success('Registered successfully.' +res.message)
-              navigate('/homeAfterLogin');
+              toast.info('Please Login with your username and password')
+              navigate('/');
           }).catch((err) => {
               toast.error('Failed :' + err.message);
           });
@@ -118,23 +119,23 @@ const Signup = () => {
         {/* Input section */}
 
           <MDBInput 
-          value={username} onChange={e => usernamechange(e.target.value)} 
-          wrapperClass='mb-4' label='Username' id='username' type='text'
+          value={id} onChange={e => idchange(e.target.value)} 
+          wrapperClass='mb-4' label='Username' placeholder='Enter User Name' name='name' id='id' type='text'
           />
 
           <MDBInput 
           value={fullname} onChange={e => fullnamechange(e.target.value)} 
-          wrapperClass='mb-4' label='Full name' id='fullname' type='text'
+          wrapperClass='mb-4' label='Full name' placeholder='Enter Full Name' name='name' id='fullname' type='text'
           />
 
           <MDBInput 
           value={email} onChange={e => emailchange(e.target.value)} 
-          wrapperClass='mb-4' label='Email'  id='email1' type='email'
+          wrapperClass='mb-4' label='Email' name='email' placeholder='Enter Email'  id='email1' type='email'
           />
 
           <MDBInput 
           value={password} onChange={e => passwordchange(e.target.value)} 
-          wrapperClass='mb-4' label='Password' id='password1' type='password'
+          wrapperClass='mb-4' label='Password' placeholder='Enter Password' id='password1' type='password'
           />
 
           <div className='d-flex text-body mb-4'>
