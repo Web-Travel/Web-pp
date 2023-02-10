@@ -3,6 +3,10 @@ import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+// import { Icon } from 'react-icons-kit';
+// import { eyeOff } from 'react-icons-kit/feather/eyeOff';
+// import { eye } from 'react-icons-kit/feather/eye';
+
 
 
   const Login = (e) => {
@@ -10,31 +14,27 @@ import { toast } from "react-toastify";
   /** ++++++++++++++++++++++++++++++++
   #   Login Call API
   /** ++++++++++++++++++++++++++++++++ */
-  const [email, emailupdate] = useState('');
+  const [username, usernameupdate] = useState('');
   const [password, passwordupdate] = useState('');
 
   const usenavigate = useNavigate();
-
-  useEffect(()=>{
-  sessionStorage.clear();
-  },[]);
 
   const ProceedLogin = (e) => {
     e.preventDefault();
     if(validate()){
     /// implementation
     // console.log('proceed');
-    fetch("http://localhost:8001/user/"+email).then((res)=>{
+    fetch('https://testapi-9qwq.onrender.com/user/'+username).then((res)=>{
         return res.json();
     }).then((resp)=>{
         console.log(resp)
         if(Object.keys(resp).length===0){
-            toast.error('Please Enter valid email.');
+            toast.error('Please Enter valid username.');
         }else{
             if(resp.password === password) {
                 toast.success('Success');
-                sessionStorage.setItem('email', email);
-                usenavigate('/photos')
+                sessionStorage.setItem('username', username);
+                usenavigate('/homelog');
             }else{
                 toast.error('Please Enter valid credentials.')
             }
@@ -49,9 +49,9 @@ import { toast } from "react-toastify";
 
   const validate = () => {
       let result = true;
-      if (email === '' || email === null) {
+      if (username === '' || username === null) {
           result = false;
-          toast.warning('Please Enter Email');
+          toast.warning('Please Enter username');
       }
       if (password === '' || password === null) {
           result = false;
@@ -66,6 +66,24 @@ import { toast } from "react-toastify";
   /** ++++++++++++++++++++++++++++++++
   #   End Login Call API
   /** ++++++++++++++++++++++++++++++++ */
+  // handle password eye
+  // handle password eye
+  // const [type, setType]=useState('password');
+  // const [icon, setIcon]=useState(eyeOff);
+ 
+  // const handleToggle=()=>{
+  //     if(type === 'password'){
+  //         setIcon(eye);
+  //         setType('text');
+  //     }else{
+  //         setIcon(eyeOff);
+  //         setType('password');
+  //     }
+  // }
+
+
+
+
   
   return (
     <>
@@ -86,14 +104,15 @@ import { toast } from "react-toastify";
           <MDBBtn floating size='md' style={{ backgroundColor: '#55acee' }}  tag='a'>
             <MDBIcon fab icon='twitter' />
           </MDBBtn>
+          
         </div>
         <p className="text-center mt-3 text-body">or:</p>
       </div>
 
       {/* Input section */}
       <div>
-        <MDBInput value={email} onChange={e => emailupdate(e.target.value)} wrapperClass='mb-4' label='Email' type='text'/>
-        <MDBInput value={password} onChange={e => passwordupdate(e.target.value)} wrapperClass='mb-4' label='Password' type='password' />
+        <MDBInput value={username} onChange={e => usernameupdate(e.target.value)} wrapperClass='mb-4' label='username' name='username' type='text'/>
+        <MDBInput value={password} onChange={e => passwordupdate(e.target.value)} wrapperClass='mb-4' label='Password' name='password' type='password' />
         <div className="d-flex justify-content-between mx-4 mb-4 text-body">
           <MDBCheckbox id='remember' label='Show Password' />
           <a href="!#">Forgot password?</a>
