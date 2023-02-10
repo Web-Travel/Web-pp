@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import {
   MDBContainer,
   MDBNavbar,
@@ -13,11 +12,11 @@ import { Spin as Hamburger } from 'hamburger-react'
 import { MDBNavItem } from 'mdbreact';
 import { NavLink } from 'react-router-dom';
 import Upload from './Upload';
+import { useNavigate } from 'react-router-dom';
 
 
-export default function Navbar() {
+export default function NavbarLog() {
   const [isOpen, setOpen] = useState(false);
-  const usenavigate = useNavigate();
 
   /** Function back to top */
   function backToTop() {
@@ -27,6 +26,20 @@ export default function Navbar() {
   /** End Function back to top */
 
   // const [showPost, setShowPost] = useState(true);
+
+const usenavigate = useNavigate();
+
+
+  // Effect 
+  useEffect(()=>{
+    let username = sessionStorage.getItem('username');
+    if(username === '' || username === null){
+        usenavigate('/');
+    }
+
+},)
+
+
 
   return (
     <MDBNavbar expand='md' className="bg-white font-weight-border h6-responsive py-2 " fixed="top"  scrolling transparent>
@@ -67,13 +80,13 @@ export default function Navbar() {
 
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
           <MDBNavItem  className="p-1 hoverable">
-              <NavLink exact to="/" onClick={backToTop} active className='nav-link text-dark'>
+              <NavLink exact to="/homelog" onClick={backToTop} active className='nav-link text-dark'>
                 HOME
               </NavLink>
             </MDBNavItem>
 
             <MDBNavItem  className="p-1 hoverable">
-              <NavLink exact to="/photos" onClick={backToTop} className='nav-link text-dark'>
+              <NavLink exact to="/photolog" onClick={backToTop} className='nav-link text-dark'>
                 PHOTOS
               </NavLink>
             </MDBNavItem>
@@ -87,11 +100,15 @@ export default function Navbar() {
                 TOP-PICTURES
               </NavLink>
             </MDBNavItem>
-            
+            <MDBNavItem  className="p-1 hoverable">
+              <NavLink exact to="/contact" onClick={backToTop} className='nav-link text-dark'>
+                CONTACT-US
+              </NavLink>
+            </MDBNavItem>
           </MDBNavbarNav>
 
           {/* Call PostButtom from PostButtom file*/}
-          
+          <Upload/>
           {/* End Profile */}
           {/* <Join absolute/> */}
 

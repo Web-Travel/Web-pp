@@ -18,8 +18,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import NavbarAfterLogin from '../Components/Sidebar/NavbarAfterLogin';
 import PostButton from '../Components/Sidebar/PostButton';
 import NavbarProfile from '../Components/Sidebar/NavbarProfile';
-import HomeAfterLogin from '../Views/AfterLogin/HomeAfterLogin';
 import Upload from '../Components/SidebarBeforeLogin/Upload';
+import Login from '../Components/LoginSignup/Login';
+import ProtectedRoute from './ProtectedRoute';
+import HomeAfterLogin from '../Views/HomeAfterLogin';
+import Photoslog from '../Views/photolog';
 
 function App() {
   return (
@@ -46,10 +49,12 @@ function App() {
           <Route path = '/postButtom' element = {< PostButton />}/>
           <Route path = '/navbarProfile' element = {< NavbarProfile />}/>
 
-          <Route path = '/homeAfterLogin' element = {< HomeAfterLogin />}/>
           <Route path = '/upload' element = {< Upload />}/>
 
           <Route path = '/userAccount' element = {<UserAccount/>} />
+          <Route path = '/login' element = {<Login/>} />
+          <Route path = '/homelog' element = {<HomeAfterLogin/> } />
+          <Route path = '/photolog' element = {<Photoslog/>} />
 
         </Routes>
       </Router>

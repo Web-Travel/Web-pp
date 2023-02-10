@@ -2,6 +2,8 @@ import { MDBBtn, MDBInput,MDBCheckbox, MDBIcon } from 'mdb-react-ui-kit';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { signInWithGoogle } from './Firebase';
+import { FcGoogle } from 'react-icons/fc';
 
 
 const Signup = () => {
@@ -56,7 +58,7 @@ const Signup = () => {
           let regobj = { username, fullname, password, email};
           if (IsValidate()) {
           //console.log(regobj);
-          fetch("http://localhost:8001/user", {
+          fetch('https://testapi-9qwq.onrender.com/user', {
               method: "POST",
               headers: { 'content-type': 'application/json' },
               body: JSON.stringify(regobj)
@@ -96,7 +98,7 @@ const Signup = () => {
       <div className="text-center mb-3">
         <p className='text-body'>Sign up with:</p>
         <div className='d-flex justify-content-between mx-auto' style={{width: '40%'}}>
-          <MDBBtn floating size='md' style={{ backgroundColor: '#3b5998' }}  tag='a'>
+          {/* <MDBBtn floating size='md' style={{ backgroundColor: '#3b5998' }}  tag='a'>
             <MDBIcon fab icon='facebook-f' />
           </MDBBtn>
           <MDBBtn floating size='md' style={{ backgroundColor: '#dd4b39' }}  tag='a'>
@@ -104,7 +106,11 @@ const Signup = () => {
           </MDBBtn>
           <MDBBtn floating size='md' style={{ backgroundColor: '#55acee' }}  tag='a'>
             <MDBIcon fab icon='twitter' />
-          </MDBBtn>
+          </MDBBtn> */}
+          
+          <div className="d-flex justify-content-center m-auto ">
+            <FcGoogle onClick={signInWithGoogle} size="2rem" className='border border-success rounded-circle' />
+          </div> 
         </div>
         <p className="text-center text-body mt-3">or:</p>
       </div>

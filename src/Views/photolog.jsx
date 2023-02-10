@@ -1,17 +1,17 @@
 import React from 'react';
-import Navbar from '../Components/SidebarBeforeLogin/Navbar';
+import NavbarLog from '../Components/SidebarBeforeLogin/NavbarLog';
 import Scrolltop from '../Components/Scrolltop';
-import Photo from '../Components/Photos/Photo';
 import photoBg from "../Assets/Image/photos.jpeg"
+import PhotoImage from '../Components/Photos/PhotoImage';
 
-function Photos() {
+function Photoslog() {
 
     return (
         <>
         {/*==================================== 
         * Navbar and Header 
         ==================================== */}
-        <Navbar/>
+        <NavbarLog/>
         <div>
             <div
             className='text-center bg-image'
@@ -35,7 +35,7 @@ function Photos() {
         {/*==================================== 
         * Main
         ==================================== */}
-        <Photo/>
+        <PhotoImage/>
         
 
         {/*==================================== 
@@ -46,5 +46,5 @@ function Photos() {
     );
 }
 
-export default Photos;
+export default Photoslog;
 
